@@ -6,13 +6,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 import json
 
 data_list = []
+# driver = webdriver.Chrome()
+# search_box = driver.find_element(By.ID, "twotabsearchtextbox")
+# search_box.clear()
+# search_box.send_keys("iphone")
+# driver.find_element(By.ID, "nav-search-submit-button").click() 
 for page in range(1, 21):
     # page_= page + 1
     page_url = "https://www.amazon.in/s?k=iphone&page="+ str(page)
     driver=webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     # Navigate to a webpage
     driver.get(page_url)
-    driver.maximize_window()
+    driver.maximize_window(4)
     driver.implicitly_wait(5)
     all_products = driver.find_elements(By.XPATH,"//div[@data-component-type='s-search-result']")
     driver.implicitly_wait(4)
@@ -33,11 +38,7 @@ for page in range(1, 21):
 
 
 # Open a Chrome browser instance
-# driver = webdriver.Chrome()
-# search_box = driver.find_element(By.ID, "twotabsearchtextbox")
-# search_box.clear()
-# search_box.send_keys("iphone")
-# driver.find_element(By.ID, "nav-search-submit-button").click()  
+ 
 
 # phone_names = []
 # phone_price = []
